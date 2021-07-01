@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
  * particularly an {@link ActionMenu} and that have a linked {@link MenuAction}
  * to execute on click.
  */
-public class ActionItem {
+public class ActionItem extends AbstractActionItem {
 
     private final int slot;
     private final MenuAction action;
@@ -34,6 +34,7 @@ public class ActionItem {
      *
      * @return Slot to place the item at.
      */
+    @Override
     public int getSlot() {
         return slot;
     }
@@ -44,6 +45,7 @@ public class ActionItem {
      *
      * @return Action to execute on click.
      */
+    @Override
     public MenuAction getAction() {
         return action;
     }
@@ -53,6 +55,7 @@ public class ActionItem {
      *
      * @return Itemstack to place on the menu.
      */
+    @Override
     public ItemStack getItemStack() {
         return itemStack;
     }

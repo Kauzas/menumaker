@@ -4,6 +4,7 @@ import be.kauzas.menumaker.AbstractMenu;
 import be.kauzas.menumaker.MenuHolder;
 import be.kauzas.menumaker.Registerer;
 import be.kauzas.menumaker.events.MenuBackEvent;
+import be.kauzas.menumaker.events.MenuClickEvent;
 import be.kauzas.menumaker.events.MenuPageChangedEvent;
 import be.kauzas.menumaker.options.Backable;
 import be.kauzas.menumaker.pagination.PaginatedMenu;
@@ -54,6 +55,8 @@ public class MenuMakerListener implements Listener {
                     identifier.getMenu().onClick(event);
                     handleBackable(player, event.getSlot(), identifier.getMenu());
                     handlePagination(player, event.getSlot(), identifier.getMenu());
+
+                    Bukkit.getPluginManager().callEvent(new MenuClickEvent(player, event.getSlot(), current, menu, event));
 
                 });
     }

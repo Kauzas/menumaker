@@ -1,0 +1,5 @@
+name: MenuMakerAPI
+author: Kauzas
+api-version: 1.16
+version: BETA-0.0.2
+main: be.kauzas.menumaker.MenuMakerAPI

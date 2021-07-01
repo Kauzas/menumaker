@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
  */
 public abstract class ActionMenu extends AbstractMenu {
 
-    private final ActionItem[] items;
+    private final AbstractActionItem[] items;
 
     /**
      * Constructor of {@link ActionMenu}.
@@ -26,9 +26,9 @@ public abstract class ActionMenu extends AbstractMenu {
      *                      the inventory click event.
      * @param title         Shown title of the inventory.
      * @param inventoryType Type type of the inventory from {@link InventoryType} enum.
-     * @param items         List of {@link ActionItem} to display in the inventory.
+     * @param items         List of {@link AbstractActionItem} to display in the inventory.
      */
-    public ActionMenu(String uniqueId, String title, InventoryType inventoryType, ActionItem[] items) {
+    public ActionMenu(String uniqueId, String title, InventoryType inventoryType, AbstractActionItem[] items) {
         super(uniqueId, title, inventoryType);
         this.items = items;
     }
@@ -40,35 +40,35 @@ public abstract class ActionMenu extends AbstractMenu {
      *                 the inventory click event.
      * @param title    Shown title of the inventory.
      * @param size     Slot amount of the inventory.
-     * @param items    List of {@link ActionItem} to display in the inventory.
+     * @param items    List of {@link AbstractActionItem} to display in the inventory.
      */
-    public ActionMenu(String uniqueId, String title, int size, ActionItem[] items) {
+    public ActionMenu(String uniqueId, String title, int size, AbstractActionItem[] items) {
         super(uniqueId, title, size);
         this.items = items;
     }
 
     /**
-     * Fill inventory with the {@link ActionItem} list.
+     * Fill inventory with the {@link AbstractActionItem} list.
      *
      * @param player    Player for whom we open the inventory.
      * @param inventory The inventory that will be opened.
      */
     @Override
     public void setContent(Player player, Inventory inventory) {
-        for (ActionItem item : items) {
+        for (AbstractActionItem item : items) {
             inventory.setItem(item.getSlot(), item.getItemStack());
         }
     }
 
     /**
      * Bind the inventory click event to action of the
-     * {@link ActionItem} list.
+     * {@link AbstractActionItem} list.
      *
      * @param event Concerned {@link InventoryClickEvent}.
      */
     @Override
     public void onClick(InventoryClickEvent event) {
-        for (ActionItem item : items) {
+        for (AbstractActionItem item : items) {
             if (event.getSlot() == item.getSlot())
                 item.getAction().execute(this, event);
         }
