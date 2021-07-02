@@ -14,7 +14,7 @@ public abstract class AbstractActionItem {
      *
      * @return Slot to place the item at.
      */
-    abstract int getSlot();
+    public abstract int getSlot();
 
     /**
      * Get the action to execute on click
@@ -22,13 +22,13 @@ public abstract class AbstractActionItem {
      *
      * @return Action to execute on click.
      */
-    abstract MenuAction getAction();
+    public abstract MenuAction getAction();
 
     /**
      * Get the itemstack to place in the menu.
      *
      * @return Itemstack to place on the menu.
      */
-    abstract ItemStack getItemStack();
+    public abstract ItemStack getItemStack();
 
 }
