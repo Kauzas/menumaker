@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>be.kauzas</groupId>
     <artifactId>MenuMaker</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>BETA-0.0.3-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
